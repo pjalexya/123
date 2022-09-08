@@ -106,8 +106,6 @@ public class AddCommandActivity extends AppCompatActivity {
                         }
 
 
-                    Log.e("ljz",path);
-
             }
         }
     }
@@ -132,9 +130,6 @@ public class AddCommandActivity extends AppCompatActivity {
                  *  把分割结果存到到数组中,根据数组来取得相应值
                  */
                 String[] buffer = line.split(",");// 以逗号分隔
-
-                Toast.makeText(AddCommandActivity.this,buffer[0],Toast.LENGTH_SHORT).show();
-                Toast.makeText(AddCommandActivity.this,"1",Toast.LENGTH_SHORT).show();
 
 
 try{
