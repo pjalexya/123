@@ -137,7 +137,12 @@ public class AddCommandActivity extends AppCompatActivity {
                 Toast.makeText(AddCommandActivity.this,"1",Toast.LENGTH_SHORT).show();
 
 
-                additionDBEngine.insertCommand8(getWindow().getDecorView(),buffer[0],buffer[1],buffer[2],buffer[3],buffer[4]);
+try{
+additionDBEngine.insertCommand8(getWindow().getDecorView(),buffer[0],buffer[1],buffer[2],buffer[3],buffer[4]);
+} catch (ArrayIndexOutOfBoundsException e) {
+
+        }
+                
 
 
             }
