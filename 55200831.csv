@@ -1,0 +1,82 @@
+command,usage,grammar,option,example
+ls,ls命令用于显示指定工作目录下之内容（列出目前工作目录所含之文件及子目录)。,ls [-alrtAFR] [name...]\n其中\n[-alrtAFR] 中的每个字母代表一个参数意义\n[name...]中name参数表示指定的要工作目录," ‘-a :显示所有文件及目录\n\n-l: 除文件名称外，亦将文件型态、权限、拥有者、文件大小等资讯详细列出\n\n-r :将文件以相反次序显示(原定依英文字母次序)\n\n-t :将文件依建立时间之先后次序列出\n\n-A :同 -a，但不列出 ""."" (目前目录) 及 "".."" (父目录)\n\n-R: 若目录下有文件、则以下之文件亦皆依序列出","（1）列出目前工作目录下所有名称是 s 开头的文件，越新的排越后面: \n   ls -ltr s* \n\n（2）将 /bin 目录以下所有目录及文件详细资料列出:\n   ls -lR /bin\n\n（3）列出/boot目录下所有文件 :\n   ls -a /boot
+
+"
+date,date 命令可以用来显示或设定系统的日期与时间。,date [OPTION]... [+FORMAT],‘-d：通过字符串显示时间格式。\n\n-r：显示文件的上次修改时间。\n\n-s：根据字符串设置系统时间。\n\n-u：显示或设置协调世界时(UTC)。\n\n--help：显示帮助信息。\n\n,"（1）格式化输出:\n   # date +""%Y-%m-%d""\n\n（2）输出昨天日期：\n   # date -d ""1 day ago"" +""%Y-%m-%d""\n\n（3）显示月份与日数:\n   date '+%B %d'\n\n（4）输出 2 秒后的时间：\n   # date -d ""2 second"" +""%Y-%m-%d %H:%M.%S"""
+who,who命令用于显示系统中有哪些使用者正在上面，显示的资料包含了使用者 ID、使用的终端机、从哪边连上来的、上线时间、呆滞时间、CPU 使用量、动作等等。,who - [husfV] [user],‘-i ：显示闲置时间；\n\n-q：只显示登入系统的帐号名称和总人数；\n\n--help：在线帮助；\n\n--version：显示版本信息。,"（1）显示当前登录系统的用户:\n   # who\n\n（2）显示标题栏:\n   # who -H\n\n（3）显示用户登录来源:\n   # who -l -H\n\n（4）只显示当前用户:\n   # who -m -H\n\n（5）精简模式显示:\n   # who -q
+"
+cal,"cal命令可以用来显示公历（阳历）日历。如只有一个参数、则表示年份(1-9999)；如有两个参数、则表示月份和年份。
+","cal [参数][月份][年份]
+",’-3 ：显示前一月、当前月、后一月三个月的日历\n\n-m: 显示星期一为第一列\n\n-j :显示在当前年第几天\n\n-y [year]:显示当前年[year]份的日历,"（1）显示指定年月的日期:\n   cal 9 2012\n\n（2）显示2013年每个月日历:\n   cal -y 2013\n\n（3）将星期一做为第一列，显示前中后三月:\n   cal -3m
+"
+help,help命令用于显示shell内部命令的帮助信息。,"（1）查看内部命令：\nhelp [参数] 内部命令\n\n（2）查看外部命令的用法：\n命令 --help
+",‘-d:输出每个命令的简短描述\n\n-s:输出短格式的帮助信息\n\n-m:以伪man手册的格式显示帮助信息,"（1）显示cd命令的帮助信息：\n   # help cd \n\n（2）以短格式显示cd命令的帮助信息：\n   # help -s cd\n\n（3）输出cd命令的简短描述:\n   # help -d cd \n\n（4）查看外部命令cat的用法：\n   # cat --help 
+"
+man,"man指令可以查看Linux中的指令帮助、配置文件帮助和编程帮助等信息。
+",man [选项] [参数],’-a：在所有的man帮助手册中搜索;\n\n-f：等价于whatis指令、显示给定关键字的简短描述信息;\n\n-P：指定内容时使用分页程序;\n\n-M：指定man手册搜索的路径。,（1）查看命令cd的帮助信息：\n   #man 1 cd\n\n（2）显示命令ls所有章节的手册：\n   man -a ls
+pwd,pwd（英文全拼：print work directory） 命令用于显示工作目录、执行 pwd 指令可立刻得知您目前所在的工作目录的绝对路径名称。,pwd [--help][--version],‘--help:在线帮助。\n\n--version:显示版本信息。,（1）查看当前所在目录：\n   # pwd
+cd,cd（英文全拼：change directory）命令用于切换当前工作目录。,cd [dirName]\ndirName：要切换的目标目录。,无。,（1）跳到 /usr/bin/ :\n   cd /usr/bin\n\n（2）跳到自己的 home 目录 :\n   cd ~\n\n（3）跳到目前目录的上上两层 :\n   cd ../..
+mkdir,mkdir（英文全拼：make directory）命令用于创建目录。,mkdir [-p] dirName,’-p:确保目录名称存在，不存在的就建一个。,（1）在工作目录下，建立一个名为 runoob 的子目录 :\n   mkdir runoob\n\n（2）在工作目录下的 runoob2 目录中建立一个名为 test 的子目录。若 runoob2 目录原本不存在，则建立一个。\n   mkdir -p runoob2/test
+rmdir,rmdir（英文全拼：remove directory）命令删除空的目录。,rmdir [-p] dirName,#NAME?,（1）将工作目录下，名为 AAA 的子目录删除 :\n   rmdir AAA\n\n（2）在工作目录下的 BBB 目录中，删除名为 Test 的子目录。若 Test 删除后，BBB 目录成为空目录，则 BBB 亦予删除。\n   rmdir -p BBB/Test
+cat,cat（英文全拼：concatenate）命令用于连接文件并打印到标准输出设备上。,cat [选项] [文件名],‘-n：由 1 开始对所有输出的行数编号。\n\n-b ：和 -n 相似，只不过对于空白行不编号。\n\n-s ：当遇到有连续两行以上的空白行，就代换为一行的空白行。\n\n-E : 在每行结束处显示 $。\n\n-T 或 --show-tabs: 将 TAB 字符显示为 ^I。,（1）把 textfile1 的文档内容加上行号后输入 textfile2 这个文档里：\n   cat -n textfile1 > textfile2\n\n（2）把 textfile1 和 textfile2 的文档内容加上行号（空白行不加）之后将内容附加到 textfile3 文档里：\n   cat -b textfile1 textfile2 >> textfile3\n\n（3）清空 /etc/test.txt 文档内容:\n      cat/dev/null > /etc/test.txt
+rm,rm（英文全拼：remove）命令用于删除一个文件或者目录。,rm [options] name...,#NAME?,（1）删除当前目录下的所有文件及目录.命令行为：\n   rm  -r  * \n\n（2）删除目录 test.不管该目录下是否有子目录或文件.都直接删除:\n   rm  -rf   test/
+cp,cp（英文全拼：copy file）命令主要用于复制文件或目录。,(1)创建文件副本:\n   cp 文件名1 文件名2\n\n(2)将文件复制到其它目录：\n   cp 文件名 目录名\n\n (3)将多个文件复制到其它目录：\n   cp 文件名1 文件名2  …  目录名,#NAME?,"（1）使用指令 cp 将当前目录 test/ 下的所有文件复制到新目录 newtest 下：
+\n   $ cp –r test/ newtest  "
+mv,mv（英文全拼：move file）命令用来为文件或目录改名、或将文件或目录移入其它位置。,（1）将文件移到其它目录\n   mv  文件名 目录 \n\n（2）改变文件名\n   mv  文件名1 文件名2\n\n（3）将文件批量移动到其它目录\nmv  文件名1  文件名2  …  目录名,‘-b: 当目标文件或目录存在时，在执行覆盖前，会为其创建一个备份。\n\n-i: 如果指定移动的源目录或文件与目标的目录或文件同名，则会先询问是否覆盖旧文件。\n\n-f: 如果指定移动的源目录或文件与目标的目录或文件同名，不会询问，直接覆盖旧文件。\n\n-u：当源文件比目标文件新或者目标文件不存在时，C15才执行移动操作。,（1）将文件 aaa 改名为 bbb :\n   mv aaa bbb\n\n（2）将 info 目录放入 logs 目录中。注意，如果 logs 目录不存在，则该命令将 info 改名为 logs。\n  mv info/ logs \n\n（3）将 /usr/runoob 下的所有文件和目录移到当前目录下。\n   $ mv /usr/runoob/*  . 
+ln, ln（英文全拼：link files）命令为某一个文件在另外一个位置建立一个同步的链接。,ln  [参数] [源文件] [目标文件],‘-b ：删除，覆盖以前建立的链接\n\n-d ：允许超级用户制作目录的硬链接\n\n-f ：强制执行\n\n-i ：交互模式，文件存在则提示用户是否覆盖\n\n-n ：把符号链接视为一般目录\n\n-s ：软链接(符号链接)\n\n-v： 显示详细的处理过程,（1）为log2022.log文件创建软链接link2022，如果log2022.log丢失，link2022将失效：        \n         ln -s log2022.log link2022\n\n（2）为log2022.log创建硬链接ln2022，log2022.log与ln2022的各项属性相同：\n   ln log2022.log ln2022
+wc,wc命令用于计算字数。,wc  [选项]  [文件...],‘-c：只显示Bytes数。\n\n-l：显示行数。\n\n-w或--words 只显示字数。    \n\n --help 在线帮助。\n\n--version 显示版本信息。, （1）统计testfile、testfile_1、testfile_2 三个文件的信息 \n   wc testfile testfile_1 testfile_2 
+find,find 命令用来在指定目录下查找文件。,find   [路径名]  [搜索选项]  [路径选项],‘-atime n : 在过去 n 天内被读取过的文件\n-mtime n : 在过去 n 天内修改过的文件\n-name : 文件名称符合 name 的文件。\n-size n : 根据文件大小查找文件。\n-type c : 文件类型是 c 的文件。\n\nd: 目录\nc: 字型装置文件\nb: 区块装置文件\nf: 一般文件,"（1）将当前目录及其子目录下所有文件后缀为 .c 的文件列出来:\n   # find . -name ""*.c""\n\n（2）将当前目录及其子目录中的所有文件列出：\n   # find . -type f\n\n（3）将当前目录及其子目录下所有最近 20 天内更新过的文件列出:\n   # find . -ctime  20"
+head,head 命令可用于查看文件的开头部分的内容。,head [参数] [文件] ,‘-q ：隐藏文件名\n-v ：显示文件名\n-c<数目>： 显示前<数目>个字节数。\n-n<行数>： 显示前<数目>行。,（1）要显示 runoob_notes.log 文件的开头 10 行，请输入以下命令：\n   head runoob_notes.log\n\n（2）显示 notes.log 文件的开头 5 行，请输入以下命令：\n   head -n 5 runoob_notes.log\n\n（3）显示文件前 20 个字节:\n   head -c 20 runoob_notes.log
+tail,tail命令用于显示文件尾部内容。,tail [参数] [文件] ,"‘-c<数目>： 显示后<数目>个字节数。\n\n-n<行数>： 显示后<数目>行。
+",（1）显示 notes.log 文件的最后 10 行，请输入以下命令：\n   tail notes.log\n\n（2）显示文件 notes.log 的最后 10 个字符:\n   tail -c 10 notes.log
+"cut
+",cut命令用于显示每行从开头算起 num1 到 num2 的文字。,cut   [选项]   [文件名],‘-c ：以字符为单位进行分割。\n-d ：自定义分隔符，默认为制表符。\n-f ：与-d一起使用，指定显示哪个区域。,（1）切割cut.txt的第5-8个字符\n   # cut -c 5-8 cut.txt 
+paste,paste 命令用于合并文件的列。,paste [选项] [文件...],‘-d<间隔字符>：用指定的间隔字符取代跳格字符。\n\n-s：串列进行而非平行处理。\n\n--help：在线帮助。\n\n[文件…] 指定操作的文件路径,"（1）将文件""file""、""testfile""、""testfile1""进行合并：\n   paste file testfile testfile1 \n\n（2）合并“file”文件的多行数据\n   $ paste -s file             "
+more,more命令可以按页来查看文件的内容，还支持直接跳转行等功能。,more  文件名,‘-c ：先清屏，然后显示要查看的文件或日志内容\n\n-d ：显示提示 “Press space to continue，’q’ to quit(按空格键继续，按q键退出)”\n\n-lines：每屏显示的行数\n\n+line-number：从第line-number 行开始显示\n\n+/pattern：从包含pattern的行的上两行开始显示,（1）逐页显示 testfile 文档内容，如有连续两行以上空白行则以一行空白行显示。\n   more -s testfile\n\n（2）从第 20 行开始显示 testfile 文档内容。\n   more +20 testfile
+less,less 可以随意浏览文件，支持翻页和搜索，支持向上翻页和向下翻页。,less [参数] 文件 ,‘-e ：当文件显示结束后，自动离开\n\n-g ：只标志最后搜索的关键词\n\n-i： 忽略搜索时的大小写\n\n-N ：显示每行的行号,（1）查看文件：\n  less log1.txt\n\n（2）浏览多个文件：\n命令：less log1.txt log2.txt
+echo,echo命令可以将消息参数显示在用户终端上。,echo string,"‘-n：禁止换行（输出后不换行）\n
+-e： 解释反斜杠引导的转义字符\n
+
+转义字符\n
+\a：警报(响铃)\n
+\b：回退\n
+\c：禁止换行\n
+\f：换页\n
+\t：水平制表符\n
+\v：垂直制表符\n","（1）显示不换行\necho -e ""OK! \c""     // -e 开启转义 \c 不换行\necho ""It is a test""\n输出结果：\nOK! It is a test\n\n（2）显示结果定向至文件\n  echo ""It is a test"" > myfile"
+alias,alias命令用于设置指令的别名。,alias[别名]=[指令名称],无。,（1）给ls命令设置别名lx：\n   # alias lx=ls
+kill,kill 命令用于删除执行中的程序或工作。,kill [-s <信息名称或编号>][程序]\n　或　\nkill [-l <信息编号>],‘-l <信息编号>：若不加<信息编号>选项，则 -l 参数会列出全部的信息名称。\n-s <信息名称或编号>：指定要送出的信息。\n[程序]：[程序]可以是程序的PID或是PGID，也可以是工作编号。,（1）杀死进程123：\n   # kill 123\n\n（2）强制杀死进程123：\n   # kill -KILL 123\n\n（3）彻底杀死进程123：\n   # kill -9 123\n\n（4）显示全部信号：\n   # kill -l
+set,set命令可以查看当前使用的shell变量。,set  [选项],"‘-a：标示已修改的变量，以供输出至环境变量。\n\n-b：使被中止的后台程序立刻回报执行状态。\n\n
+-d ：Shell预设会用杂凑表记忆使用过的指令，以加速指令的执行。使用-d参数可取消。\n\n-e ：若指令传回值不等于0，则立即退出shell。\n\n-f：取消使用通配符。\n\n",（1）显示环境变量：\n   # set
+unset,unset命令用于删除变量或函数。,unset  [选项] [变量或函数名称],‘-f：仅删除函数。\n\n-v：仅删除变量。,（1）使用unset命令将前面所创建的环境变量abc及其对应的值进行删除：\n   unset -v abc
+sleep,sleep命令可以用来将目前动作延迟一段时间。,sleep  [参数],‘--help : 显示辅助讯息\n\n--version : 显示版本编号\n\nnumber : 时间长度，后面可接 s、m、h 或 d\n其中 s 为秒，m 为分钟，h 为小时，d 为日数,（1）休眠5分钟：\n   # sleep 5m\n\n（2）显示目前时间后延迟 1 分钟，之后再次显示时间：\n   date;sleep 1m;date
+ps, ps （英文全拼：process status）命令用于显示当前进程的状态。,ps  [选项],‘-A：列出所有的进程\n\n-w ：显示加宽可以显示较多的资讯\n\n-au： 显示较详细的资讯\n\n-aux ：显示所有包含其他使用者的进程,（1）显示指定用户信息：\n   # ps -u root \n\n（2）显示进程信息：\n   # ps -A \n\n（3）显示所有进程信息，连同命令行：\n   # ps -ef 
+tee,tee命令用于读取标准输入的数据，并将其内容输出成文件。,tee  [选项]  [文件],‘-a：附加到既有文件的后面，而非覆盖它。\n\n-i：忽略中断信号。\n\n--help：在线帮助。       \n\n--version：显示版本信息。,"（1）将用户输入的数据同时保存到文件""file1""和""file2""中：\n   $ tee file1 file2     "
+grep,grep 命令用于查找文件里符合条件的字符串。,grep  [选项]  [参数],‘-c：计算符合样式的列数。\n\n-i ：忽略字符大小写的差别。\n\n-l：只显示具有匹配的行的文件名，而不显示匹配行。\n\n-n ：在显示符合样式的那一行之前，标示出该行的列数编号。\n\n-v：显示不包含匹配文本的所有行。,（1）查找后缀有 file 字样的文件中包含 test 字符串的文件，并打印出该字符串的行：\n   grep  test  *file \n\n（2）查找文件名中包含 test 的文件中不包含test 的行：\n   grep  -v  test  *test*
+sort,sort 命令用于将文本文件内容加以排序。,sort  [选项]  [文件],‘-b：忽略每行前面开始出的空格字符。\n\n-c ：检查文件是否已经按照顺序排序。\n\n-d ：排序时，处理英文字母、数字及空格字符外，忽略其他的字符。\n\n-f ：排序时，将小写字母视为大写字母。\n\n-n ：依照数值的大小排序。,（1）对testfile文件的行进行排序：\n   sort testfile \n\n（2）对testfile文件的第二列的值进行排序：\n   $ sort testfile -k 2
+chmod,chmod（英文全拼：change mode）命令是控制用户对文件的权限的命令。,chmod [选项]  [文件],‘-c : 若该文件权限确实已经更改，才显示其更改动作\n\n-f : 若该文件权限无法被更改也不要显示错误讯息\n\n-v : 显示权限变更的详细资料\n\n-R : 对目前目录下的所有文件与子目录进行相同的权限变更(即以递归的方式逐个变更)\n\n--help : 显示辅助说明\n\n--version : 显示版本,（1）将文件 file1.txt 设为所有人皆可读取 :\n   chmod a+r file1.txt\n\n（2）为 ex1.py 文件拥有者增加可执行权限:\n   chmod u+x ex1.py
+test,test 命令用于检查某个条件是否成立，它可以进行数值、字符和文件三个方面的测试。,test  表达式1  逻辑运算符  表达式2,‘-eq：判断num1与num2是否相等\n-ne：判断num1与num2是否不相等\n-gt：判断num1是否大于num2\n-lt：判断num1是否小于num2\n=：判断string1是否与string2相同\n-n：判断string是否包含字符(长度非0）\n-z：判断string是否为空串(长度为0)\n-f：判断文件filename是否存在并且是普通文件\n-d：判断文件filename是否存在并且是一个目录,（1）判断num1和num2是否相等：\n   if test $[num1] -eq $[num2]\n   then       \n   echo '两个数相等！'\n   else\n   echo '两个数不相等！'\n  fi
+read,read命令用于从标准输入读取数值。,read  [选项]  [参数],"‘-a： 后跟一个变量，该变量会被认为是个数组，然后给其赋值，默认是以空格为分割符。\n\n-d ： 后面跟一个标志符，其实只有其后的第一个字符有用，作为结束的标志。\n\n-p ： 后面跟提示信息，即在输入前打印提示信息。\n\n-n ： 后跟一个数字，定义输入文本的长度，很实用。\n\n-t：  后面跟秒数，定义输入字符的等待时间。
+",（1）读取abc：\n   read abc
+expr,expr命令用于求表达式变量的值，一般用于整数值，也可用于字符串。,expr  [表达式],无。,"（1）计算字串长度：\n   expr length “this is a test”\n   输出：14\n\n（2）抓取第一个字母a出现的位置：\n   expr index ""sarasara""  a\n    输出：2\n\n（3）计算10加10：\n   expr 10 + 10\n   输出：20"
+let,let 命令用于执行一个或多个表达式。,let  [表达式1]  [表达式2],无。,（1）计算 a 和 b 两个表达式，并输出结果：\n   let a=5+4\n   let b=9-3 \n   echo $a $b\n结果：9  6
+df,df（英文全拼：disk free） 命令用于显示目前在 Linux 系统上的文件系统磁盘使用情况统计。,df [选项]... [FILE]...,‘-h：以易读方式显示,（1）显示文件系统的磁盘使用情况统计：\n   # df \n\n（2）以易读的方式显示：\n  # df -h 
+du,du （英文全拼：disk usage）命令用于显示目录或文件的大小。,du  [选项]  [目录],‘-a：显示目录中个别文件的大小。\n\n-b：显示目录或文件大小时，以byte为单位。\n\n-c：除了显示个别目录或文件的大小外，同时也显示所有目录或文件的总和。\n\n-s：显示指定目录，不显示子目录。,（1）显示log2022.log文件所占空间：\n   # du log2022.log \n\n（2）方便阅读的格式显示test目录所占空间情况：\n   # du -h test
+at,在指定时间执行一个或一组命令,at [选项] [日期时间],‘-f：指定包含具体指令的任务文件\n\n-q：指定新任务的队列名称\n\n-l：列出所有at命令提交的作业\n\n-d：删除指定的待执行任务\n\n-m：作业完成时向用户发送一条确认信息\n\n-r：从at调度作业中删除指定的作业号,（1）列出所有at命令提交的作业：\n   $ at -l\n\n（2）删除7号作业：\n   $ at -r 7
+type,type命令用于判断一个命令是外部程序/命令，还是内部命令。,type [选项] [命令],‘-a：显示所有可能的类型。\n\n-p：只返回外部命令的信息。\n\n-f：只返回shell函数的信息。\n\n,"（1）判断pwd命令：\n   $type pwd\n\n（2）判断ls命令：\n   $type ls
+"
+time,time命令用于测量特定指令执行时所需消耗的时间及系统资源等资讯。,time   命令,"‘-o ：设定结果输出档。这个选项会将 time 的输出写入 所指定的档案中。如果档案已经存在，系统将覆写其内容。\n\n-a ：配合 -o 使用，会将结果写到档案的末端，而不会覆盖掉原来的内容。
+",（1）统计ls执行的时间：\n   # time ls
+tar,tar（英文全拼：tape archive ）命令用于备份文件。,（1）打包文件：\n  tar  -cvf  tarfilename  files/directories\n\n（2）显示打包文件：\n  tar  -tvf  tarfilename  \n\n（3）解包包中所有文件：\n  tar  -xvf  tarfilename   \n\n（4）解包包中特定文件：\n  tar  -xvf  tarfilename  filename  \n\n,‘-v：显示打包文件信息\n\n-f：指定存档文件名\n\n-t：列出存档文件内容\n\n-c：创建存档文件\n\n,（1）列出压缩文件内容：\n   # tar -tzvf test.tar.gz \n\n（2）解压文件：\n   # tar -xzvf test.tar.gz 
+compress,compress用于压缩文件。,compress  [选项]  [文件名],‘-v：显示压缩比例,（1）显示my.tar的压缩比例：\n   compress -v my.tar
+uncompress,uncompress命令用于解压缩文件。,uncompress  [选项]  [文件名],暂无描述。,（1）解压缩my.tar.Z文件。\n  $uncompress my.tar.Z
+shutdown,shutdown 命令可以用来进行关机程序，并且在关机以前传送讯息给所有使用者正在执行的程序，shutdown 也可以用来重开机。,shutdown [-t seconds] [-rkhncfF] time [message],"‘-t seconds : 设定在几秒钟之后进行关机程序。
+-k : 并不会真的关机，只是将警告讯息传送给所有使用者。
+-r : 关机后重新开机。
+-h : 关机后停机。
+-n : 不采用正常程序来关机，用强迫的方式杀掉所有执行中的程序后自行关机。
+-c : 取消目前已经进行中的关机动作。
+-f : 关机时，不做 fsck 动作(检查 Linux 档系统)。
+-F : 关机时，强迫进行 fsck 动作。
+time : 设定关机的时间。
+message : 传送给所有使用者的警告讯息。",（1）立即关机\n # shutdown -h now\n\n（2）指定 10 分钟后关机\n# shutdown -h 10\n\n（3）重新启动计算机\n# shutdown -r now\n\n
